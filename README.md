@@ -58,6 +58,7 @@ sites/
 ```
 
 Each site includes a `PROMPT.md` file with the original user prompt used to generate it.
+Prompt source: [motionsites.ai](https://motionsites.ai/).
 
 ## Run A Website
 
