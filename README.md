@@ -2,6 +2,17 @@
 
 This repository is a collection of standalone cool UI websites.
 
+## Preview Gallery
+
+| Site | Preview |
+| --- | --- |
+| [空间鱼缸](sites/space-fish-tank) | <video src="previews/space-fish-tank.webm" width="360" controls muted loop playsinline></video> |
+| [Retro-Futurist](sites/retro-futurist) | <video src="previews/retro-futurist.webm" width="360" controls muted loop playsinline></video> |
+| [SENTINEL AI](sites/sentinel-ai) | <video src="previews/sentinel-ai.webm" width="360" controls muted loop playsinline></video> |
+| [Measured](sites/measured) | <video src="previews/measured.webm" width="360" controls muted loop playsinline></video> |
+| [Aura](sites/aura) | <video src="previews/aura.webm" width="360" controls muted loop playsinline></video> |
+| [securify](sites/securify) | <video src="previews/securify.webm" width="360" controls muted loop playsinline></video> |
+
 ## Structure
 
 Each website lives in its own directory under `sites/`:
