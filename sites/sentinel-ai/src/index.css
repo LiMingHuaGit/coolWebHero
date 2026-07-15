@@ -41,3 +41,35 @@
 .contain-paint {
   contain: paint;
 }
+
+.spline-resolution-frame {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.spline-stage canvas {
+  display: block;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.hero-shadow-bloom {
+  background:
+    radial-gradient(
+      ellipse 44% 38% at 53% 28%,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.62) 32%,
+      rgba(0, 0, 0, 0.36) 58%,
+      rgba(0, 0, 0, 0) 82%
+    ),
+    radial-gradient(
+      ellipse 50% 42% at 52% 50%,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.2) 44%,
+      rgba(0, 0, 0, 0) 78%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 0.42) 100%);
+}

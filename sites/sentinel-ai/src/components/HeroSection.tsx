@@ -1,4 +1,5 @@
-import { lazy, memo, Suspense } from 'react';
+import { lazy, memo, Suspense, useCallback, useLayoutEffect, useRef } from 'react';
+import type { Application } from '@splinetool/runtime';
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
 
@@ -7,12 +8,66 @@ const splineScene = 'https://prod.spline.design/Slk6b8kz3LRlKiyk/scene.splinecod
 const description =
   'Enterprise security systems built in days. AI-powered surveillance deployed with zero-trust architecture. Smart access control set up for your entire facility. All of it done right, not just fast.';
 
+const maxCanvasWidth = 1280;
+const maxCanvasHeight = 820;
+
+function tuneSplineCanvas(app: Application) {
+  const canvas = app.canvas;
+  canvas.style.transform = 'translateZ(0)';
+}
+
 const SplineBackdrop = memo(function SplineBackdrop() {
+  const splineRef = useRef<Application | null>(null);
+  const frameRef = useRef<HTMLDivElement | null>(null);
+
+  const syncFrameSize = useCallback(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const scale = Math.max(width / maxCanvasWidth, height / maxCanvasHeight, 1);
+    const frameWidth = Math.ceil(width / scale);
+    const frameHeight = Math.ceil(height / scale);
+
+    frame.style.width = `${frameWidth}px`;
+    frame.style.height = `${frameHeight}px`;
+    frame.style.transform = `translate3d(-50%, -50%, 0) scale(${scale})`;
+  }, []);
+
+  const handleLoad = useCallback((app: Application) => {
+    splineRef.current = app;
+    app.setGlobalEvents(false);
+    tuneSplineCanvas(app);
+  }, []);
+
+  useLayoutEffect(() => {
+    let frame = 0;
+
+    const handleResize = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        syncFrameSize();
+        if (splineRef.current) tuneSplineCanvas(splineRef.current);
+      });
+    };
+
+    syncFrameSize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [syncFrameSize]);
+
   return (
-    <div className="absolute inset-0 contain-paint">
-      <Suspense fallback={<div className="absolute inset-0 bg-hero-bg" />}>
-        <Spline scene={splineScene} className="h-full w-full" />
-      </Suspense>
+    <div className="spline-stage absolute inset-0 contain-paint">
+      <div ref={frameRef} className="spline-resolution-frame">
+        <Suspense fallback={<div className="absolute inset-0 bg-hero-bg" />}>
+          <Spline scene={splineScene} className="h-full w-full" onLoad={handleLoad} />
+        </Suspense>
+      </div>
     </div>
   );
 });
@@ -23,6 +78,7 @@ export function HeroSection() {
       <SplineBackdrop />
 
       <div className="pointer-events-none absolute inset-0 z-[1] bg-black/30" />
+      <div className="hero-shadow-bloom pointer-events-none absolute inset-0 z-[2]" />
 
       <div className="pointer-events-none relative z-10 w-full max-w-[90%] px-6 pb-10 pt-32 sm:max-w-md md:px-10 md:pb-10 lg:max-w-2xl">
         <h1
