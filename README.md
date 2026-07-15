@@ -6,12 +6,12 @@ This repository is a collection of standalone cool UI websites.
 
 | Site | Preview |
 | --- | --- |
-| [空间鱼缸](sites/space-fish-tank) | <video src="previews/space-fish-tank.webm" width="360" controls muted loop playsinline></video> |
-| [Retro-Futurist](sites/retro-futurist) | <video src="previews/retro-futurist.webm" width="360" controls muted loop playsinline></video> |
-| [SENTINEL AI](sites/sentinel-ai) | <video src="previews/sentinel-ai.webm" width="360" controls muted loop playsinline></video> |
-| [Measured](sites/measured) | <video src="previews/measured.webm" width="360" controls muted loop playsinline></video> |
-| [Aura](sites/aura) | <video src="previews/aura.webm" width="360" controls muted loop playsinline></video> |
-| [securify](sites/securify) | <video src="previews/securify.webm" width="360" controls muted loop playsinline></video> |
+| [空间鱼缸](sites/space-fish-tank) | <img src="previews/space-fish-tank.gif" width="360" alt="空间鱼缸 preview"> |
+| [Retro-Futurist](sites/retro-futurist) | <img src="previews/retro-futurist.gif" width="360" alt="Retro-Futurist preview"> |
+| [SENTINEL AI](sites/sentinel-ai) | <img src="previews/sentinel-ai.gif" width="360" alt="SENTINEL AI preview"> |
+| [Measured](sites/measured) | <img src="previews/measured.gif" width="360" alt="Measured preview"> |
+| [Aura](sites/aura) | <img src="previews/aura.gif" width="360" alt="Aura preview"> |
+| [securify](sites/securify) | <img src="previews/securify.gif" width="360" alt="securify preview"> |
 
 ## Structure
 
