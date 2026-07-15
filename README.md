@@ -11,34 +11,42 @@ sites/
   space-fish-tank/
     index.html
     package.json
+    PROMPT.md
     public/assets/
     src/
   retro-futurist/
     index.html
     package.json
+    PROMPT.md
     public/assets/
     src/
   sentinel-ai/
     index.html
     package.json
+    PROMPT.md
     src/
   measured/
     index.html
     package.json
+    PROMPT.md
     public/assets/
     public/fonts/
     src/
   aura/
     index.html
     package.json
+    PROMPT.md
     public/assets/
     src/
   securify/
     index.html
     package.json
+    PROMPT.md
     public/assets/
     src/
 ```
+
+Each site includes a `PROMPT.md` file with the original user prompt used to generate it.
 
 ## Run A Website
 
