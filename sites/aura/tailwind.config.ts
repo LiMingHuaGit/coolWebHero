@@ -1,0 +1,25 @@
+import type { Config } from 'tailwindcss';
+
+export default {
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        brand: '#3D81E3',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      keyframes: {
+        shiny: {
+          '0%': { backgroundPosition: '-200% center' },
+          '100%': { backgroundPosition: '200% center' },
+        },
+      },
+      animation: {
+        shiny: 'shiny 6s linear infinite',
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config;
